@@ -56,7 +56,6 @@ Logic: Checks current user count against tenant's maxUsers limit.
 API 7: List Tenant Users
 Endpoint: GET /api/tenants/:tenantId/users
 
-Query Params: search (by name or email).
 
 API 8: Update User
 Endpoint: PUT /api/users/:userId
