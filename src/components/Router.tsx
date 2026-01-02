@@ -1,5 +1,4 @@
 import { useState, useEffect, ReactNode } from 'react';
-
 interface Route {
   path: string;
   element: ReactNode;
