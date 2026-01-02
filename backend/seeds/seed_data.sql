@@ -2,10 +2,6 @@
 TRUNCATE TABLE tasks, projects, users, tenants CASCADE;
 
 -- 2. CREATE SUPER ADMIN ACCOUNT
--- Note: Super Admin is not linked to any specific tenant (tenant_id is NULL if your schema allows, otherwise we create a 'System' tenant)
--- Assuming your schema requires a tenant_id for all users, we first create a "System Admin" tenant or handle it as NULL if modified.
--- Based on standard SaaS, we usually create a 'Platform' tenant for the Super Admin.
-
 INSERT INTO tenants (id, name, subdomain, status, subscription_plan)
 VALUES (
     gen_random_uuid(), 
