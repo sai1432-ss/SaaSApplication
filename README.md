@@ -1,45 +1,164 @@
-Multi-Tenant SaaS Task Manager
-1. Project Description
-This is a robust, production-ready Multi-Tenant SaaS platform designed for scalable project and task management. The application uses a shared-database architecture with logical data isolation to ensure each tenant's data remains private and secure.Target Audience: Small to medium-sized enterprises (SMEs) and project teams requiring a centralized, containerized solution for collaborative task tracking.
+# Multi-Tenant SaaS Task Management Platform
 
-2. Features ListMulti-Tenancy: Isolated data environment for different organizations using subdomain-based routing.
-Role-Based Access Control (RBAC): Distinct permissions for Super Admins, Tenant Admins, and Regular Users.
-Automated Database Lifecycle: Self-executing schema migrations (001-006) and data seeding upon startup.
-Project Management: Create, update, and archive projects specific to each tenant.
-Task Tracking: Granular task management including status updates, priority levels, and assignments.
-Security: Secure authentication using JSON Web Tokens (JWT) and encrypted password hashing.
-Audit Logging: Automatic tracking of system actions for security auditing and compliance.
-Health Monitoring: Integrated health checks to verify database and API readiness.
+## 📌 Project Description
 
-3. Technology StackFrontend: React (v18), Vite, Tailwind CSS.
-Backend: Node.js (v18), Express.js framework.
-Database: PostgreSQL (v15).
-Containerization: Docker & Docker Compose.
-4. Architecture Overview
-The application follows a classic three-tier architecture fully encapsulated in Docker containers.
-Presentation Layer: React frontend serves the UI and communicates with the API via Axios.
-Logic Layer: Node.js/Express backend handles authentication, multi-tenancy logic, and business rules.
-Data Layer: PostgreSQL stores all relational data, using a tenant_id column for logical data partitioning.
+The **Multi-Tenant SaaS Task Management Platform** is a production-ready, multi-tenant environment. The system supports multiple organizations (tenants) on a shared infrastructure while ensuring strict data isolation and role-based access control.
 
-5. Installation & Setup
-Follow these steps to get the environment running locally:
-Prerequisites:
-Docker Desktop installed and running.
-Step-by-Step Setup:
-Clone the Repository: git clone <your-repo-url>
-cd project
-Start the Environment:Run the following command to build and start all services:
-docker-compose up -d --build
-Check status with:Bashdocker-compose ps
+This platform is ideal for **startups, small-to-medium enterprises, and internal teams** looking for a scalable task and project management solution built with modern web technologies.
 
-6. Environment Variables
-The following variables are configured in the docker-compose.yml for internal communication:VariablePurposeDB_HOSTHostname of the database service (set to database).
-DB_PORTPort for PostgreSQL (default 5432).
-JWT_SECRETKey used for signing and verifying authentication tokens.VITE_API_URLThe external URL the frontend uses to contact the API (http://localhost:5000/api).
+---
 
-7. API Documentation
-The backend exposes the following primary endpoints:
-System Health: GET /api/health — Returns 200 OK if the database is connected and ready.
-Authentication: POST /api/auth/login — Validates credentials and returns a JWT.
-Projects: GET /api/projects — Lists all projects belonging to the authenticated tenant.
-Tasks: GET /api/tasks — Lists tasks within a specific project.
+## 🚀 Features
+
+* Multi-Tenant Architecture with strict tenant data isolation
+* Subdomain-based tenant routing
+* Role-Based Access Control (Super Admin, Tenant Admin, End User)
+* Secure authentication using JWT
+* Project creation, update, and archival
+* Task management with status, priority, and assignments
+* Subscription and user limit enforcement per tenant
+* Automated database migrations and seeding
+* Audit logging for critical system actions
+* Health check endpoint for system monitoring
+
+---
+
+## 🛠 Technology Stack
+
+### Frontend
+
+* React v18
+* Vite
+* Tailwind CSS
+
+### Backend
+
+* Node.js v18
+* Express.js
+
+### Database
+
+* PostgreSQL v15
+
+### Containerization & DevOps
+
+* Docker
+* Docker Compose
+
+---
+
+## 🏗 Architecture Overview
+
+The application follows a **three-tier architecture** and is fully containerized using Docker:
+
+* **Client Layer:** Web browser accessing the React frontend
+* **Application Layer:** Node.js + Express REST API handling authentication, business logic, and multi-tenancy
+* **Data Layer:** PostgreSQL database with logical tenant isolation using `tenant_id`
+
+Authentication is handled using JWT tokens, and all protected routes enforce role-based authorization.
+
+📷 **Architecture Diagram:**
+`docs/images/system-architecture.png`
+`docs/images/database-erd.png`
+
+---
+
+## ⚙️ Installation & Setup
+
+### Prerequisites
+
+* Node.js v18+
+* npm v9+
+* Docker Desktop
+
+---
+
+### Step-by-Step Setup (Using Docker)
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/sai1432-ss/SaaSApplication.git
+   cd SaaSApplication
+   ```
+
+2. Build and start all services:
+
+   ```bash
+   docker-compose up -d --build
+   ```
+
+3. Verify running containers:
+
+   ```bash
+   docker-compose ps
+   ```
+
+---
+
+### Database Migrations & Seeding
+
+Migrations and seed scripts run automatically when the backend container starts. No manual execution is required.
+
+---
+
+### Running Services
+
+* Frontend: [http://localhost:3000](http://localhost:3000)
+* Backend API: [http://localhost:5000/api](http://localhost:5000/api)
+* Health Check: [http://localhost:5000/api/health](http://localhost:5000/api/health)
+
+---
+
+## 🔐 Environment Variables
+
+### Backend (`.env`)
+
+| Variable    | Description                     |
+| ----------- | ------------------------------- |
+| DB_HOST     | Database service hostname       |
+| DB_PORT     | PostgreSQL port (default: 5432) |
+| DB_NAME     | Database name                   |
+| DB_USER     | Database username               |
+| DB_PASSWORD | Database password               |
+| JWT_SECRET  | Secret key for JWT signing      |
+
+### Frontend
+
+| Variable     | Description          |
+| ------------ | -------------------- |
+| VITE_API_URL | Backend API base URL |
+
+---
+
+## 📡 API Documentation
+
+Detailed API documentation is available in:
+
+📄 `docs/API.md`
+
+### Key Endpoints (Overview)
+
+* `POST /api/auth/register-tenant`
+* `POST /api/auth/login`
+* `GET /api/tenants`
+* `GET /api/projects`
+* `POST /api/projects`
+* `GET /api/tasks`
+
+All protected endpoints require a valid JWT token in the Authorization header.
+
+---
+
+## 📘 Additional Documentation
+
+* Research & System Design: `docs/research.md`
+* Product Requirements Document: `docs/PRD.md`
+* Architecture Design: `docs/architecture.md`
+* Technical Specification: `docs/technical-spec.md`
+
+---
+
+## ✅ Conclusion
+
+This project demonstrates a complete end-to-end implementation of a scalable, secure, and maintainable multi-tenant SaaS platform. It follows industry best practices in system design, security, and DevOps, making it suitable for academic evaluation as well as real-world applications.
