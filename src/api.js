@@ -8,8 +8,7 @@ const api = axios.create({
   },
 });
 
-// 2. Add a Request Interceptor 
-// This automatically adds the Token to EVERY request if it exists
+
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token'); // We will store token here on Login
