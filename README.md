@@ -33,7 +33,7 @@ This platform is ideal for **startups, small-to-medium enterprises, and internal
 
 ### Backend
 
-* Node.js v18
+* Node.js
 * Express.js
 
 ### Database
