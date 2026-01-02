@@ -3,7 +3,6 @@
 ## Project: Multi-Tenant SaaS Task Management Platform
 
 This document describes the overall system architecture, database schema design, and API architecture of the Multi-Tenant SaaS Task Management Platform. It provides a clear structural view of how different components interact and how data flows securely across the system.
-
 ---
 
 ## 1. System Architecture Diagram
