@@ -122,9 +122,7 @@ Backend environment variables (defined in `.env`):
 * `DB_PASSWORD`
 * `JWT_SECRET`
 
-Frontend environment variables:
 
-* `VITE_API_URL`
 
 ---
 
