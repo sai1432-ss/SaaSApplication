@@ -1,5 +1,4 @@
 # Multi-Tenant SaaS Task Management Platform
-
 ## 📌 Project Description
 
 The **Multi-Tenant SaaS Task Management Platform** is a production-ready, multi-tenant environment. The system supports multiple organizations (tenants) on a shared infrastructure while ensuring strict data isolation and role-based access control.
