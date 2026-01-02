@@ -3,7 +3,6 @@
 ## Project: Multi-Tenant SaaS Task Management Platform
 
 This document defines the technical implementation details of the system, including project structure and development setup guidelines. It serves as a reference for developers to understand code organization, configuration, and local execution procedures.
-
 ---
 
 ## 1. Project Structure
