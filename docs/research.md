@@ -3,7 +3,6 @@
 This document presents a detailed research analysis and system design justification for the **Multi-Tenant SaaS Task Management Platform**. The focus is on evaluating multi-tenancy strategies, selecting an optimal technology stack, and defining robust security considerations suitable for a production-ready SaaS environment.
 
 ---
-
 ## 1.1 Multi-Tenancy Analysis
 
 Multi-tenancy is the core architectural principle of any SaaS product. It allows multiple organizations (tenants) to share the same application while ensuring strict data isolation, security, and performance guarantees. Choosing the right multi-tenancy strategy directly impacts scalability, cost, maintenance, and security.
